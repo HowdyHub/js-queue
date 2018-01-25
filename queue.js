@@ -58,7 +58,7 @@ function Queue(asStack){
             queue.push(arguments[i]);
         }
         if(!running && !this.stop && this.autoRun){
-            this.next();
+            return this.next();
         }
     }
 
@@ -69,7 +69,7 @@ function Queue(asStack){
             return;
         }
 
-        queue.shift().bind(this)();
+        return queue.shift().bind(this)();
     }
 }
 

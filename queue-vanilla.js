@@ -38,16 +38,16 @@ function Queue(){
     var queue=[];
     var running=false;
     var stop=false;
-    
+
     function clearQueue(){
         queue=[];
         return queue;
     }
-    
+
     function getQueue(){
         return queue;
     }
-    
+
     function setQueue(val){
         queue=val;
         return queue;
@@ -58,7 +58,7 @@ function Queue(){
             queue.push(arguments[i]);
         }
         if(!running && !this.stop && this.autoRun){
-            this.next();
+            return this.next();
         }
     }
 
@@ -69,6 +69,6 @@ function Queue(){
             return;
         }
 
-        queue.shift().bind(this)();
+        return queue.shift().bind(this)();
     }
 }
